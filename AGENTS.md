@@ -3,6 +3,7 @@
 Small personal desktop apps, one folder per app. Each app is self-contained: its own `AGENTS.md`/`README.md` (where it has them), code, and build.
 
 - `tierlist/`: Tier List ZC, a drag-and-drop tier list app with an agent-editable CLI. See `tierlist/AGENTS.md`.
+- `cpu-bars/`: CPU Bars, a menu bar CPU monitor (SwiftUI `MenuBarExtra`).
 
 ## Conventions
 
