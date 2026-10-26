@@ -91,7 +91,7 @@ For a commercial license that allows closed-source use, contact [ZazenCodes](htt
 <p align="center">
   <a href="https://zazencodes.com/?utm_source=github&utm_medium=referral&utm_campaign=tierlist">
     <img
-      src="docs/assets/zazencodes-banner.png"
+      src="../docs/assets/zazencodes-banner.png"
       alt="ZazenCodes — Engineering for the Agentic Era"
       width="100%"
     >
