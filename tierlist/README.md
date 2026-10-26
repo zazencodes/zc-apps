@@ -5,7 +5,7 @@
 # Tier List ZC
 
 <p align="center">
-  <a href="https://github.com/zazencodes/zc-apps/releases?q=tierlist"><img src="https://img.shields.io/github/v/release/zazencodes/zc-apps?filter=tierlist/*" alt="Latest release"></a>
+  <a href="https://github.com/zazencodes/zc-apps/releases/tag/tierlist/v1.0.0"><img src="https://img.shields.io/badge/release-v1.0.0-blue" alt="Release v1.0.0"></a>
   <a href="../LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-blue" alt="License: GPLv3"></a>
   <img src="https://img.shields.io/badge/platform-macOS%2014%2B-lightgrey?logo=apple" alt="Platform: macOS 14+">
   <img src="https://img.shields.io/badge/Swift-F05138?logo=swift&logoColor=white" alt="Swift">

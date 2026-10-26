@@ -19,7 +19,7 @@ Each app has its own `<app>/CHANGELOG.md` (Keep a Changelog). Add an entry under
 
 Each app is released on its own, as a tag `<app>/vX.Y.Z` with a GitHub release. From a clean, pushed `main`:
 
-1. In `<app>/CHANGELOG.md`, rename `[Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and add a fresh `## [Unreleased]` above it. Commit as `Release <app> vX.Y.Z` and push.
+1. In `<app>/CHANGELOG.md`, rename `[Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and add a fresh `## [Unreleased]` above it. If `<app>/README.md` has a release badge, set its version and link to the new tag. Commit as `Release <app> vX.Y.Z` and push.
 2. `git tag -a <app>/vX.Y.Z -m "<app>/vX.Y.Z"` and `git push origin <app>/vX.Y.Z`.
 3. `gh release create <app>/vX.Y.Z --title "<App Name> vX.Y.Z" --notes "<that version's CHANGELOG section>"`.
 
