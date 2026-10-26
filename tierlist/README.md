@@ -5,8 +5,8 @@
 # Tier List ZC
 
 <p align="center">
-  <a href="https://github.com/zazencodes/tierlist/releases/latest"><img src="https://img.shields.io/github/v/release/zazencodes/tierlist" alt="Latest release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-blue" alt="License: GPLv3"></a>
+  <a href="https://github.com/zazencodes/zc-apps/releases?q=tierlist"><img src="https://img.shields.io/github/v/release/zazencodes/zc-apps?filter=tierlist/*" alt="Latest release"></a>
+  <a href="../LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-blue" alt="License: GPLv3"></a>
   <img src="https://img.shields.io/badge/platform-macOS%2014%2B-lightgrey?logo=apple" alt="Platform: macOS 14+">
   <img src="https://img.shields.io/badge/Swift-F05138?logo=swift&logoColor=white" alt="Swift">
   <img src="https://img.shields.io/badge/node-24-339933?logo=nodedotjs&logoColor=white" alt="Node 24">
@@ -42,8 +42,8 @@ Ask Claude Code or Codex to "make a tier list of these use cases", paste a list 
 ## Quick start
 
 ```sh
-git clone https://github.com/zazencodes/tierlist.git
-cd tierlist
+git clone https://github.com/zazencodes/zc-apps.git
+cd zc-apps/tierlist
 ./mac/build.sh
 open "build/Tier List ZC.app"
 ```
@@ -84,7 +84,7 @@ Your data is saved locally inside the project folder and never leaves your machi
 
 ## License
 
-[GPLv3](LICENSE). You can use, modify and share this code, and any version you distribute must also be released under GPLv3.
+[GPLv3](../LICENSE). You can use, modify and share this code, and any version you distribute must also be released under GPLv3.
 
 For a commercial license that allows closed-source use, contact [ZazenCodes](https://zazencodes.com/).
 
