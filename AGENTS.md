@@ -4,6 +4,7 @@ Small personal desktop apps, one folder per app. Each app is self-contained: its
 
 - `tierlist/`: Tier List ZC, a drag-and-drop tier list app with an agent-editable CLI. See `tierlist/AGENTS.md`.
 - `cpu-bars/`: CPU Bars, a menu bar CPU monitor (SwiftUI `MenuBarExtra`).
+- `record-mode/`: Record Mode, a menu bar toggle that switches the main display to a lighter mode for screen recording (SwiftUI `MenuBarExtra`).
 
 ## Conventions
 

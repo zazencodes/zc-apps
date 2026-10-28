@@ -13,12 +13,14 @@ Small desktop apps by [ZazenCodes](https://zazencodes.com/). Each app lives in i
 | --- | --- |
 | [Tier List ZC](tierlist/) | A drag-and-drop tier list app for macOS that your AI agent can build and edit for you. |
 | [CPU Bars](cpu-bars/) | A menu bar CPU monitor for macOS. |
+| [Record Mode](record-mode/) | A menu bar toggle that switches your display to a lighter mode for screen recording. |
 
 ```sh
 git clone https://github.com/zazencodes/zc-apps.git
 cd zc-apps
 ./tierlist/mac/build.sh && open "tierlist/build/Tier List ZC.app"
 ./cpu-bars/mac/build.sh && open "cpu-bars/build/CPU Bars.app"
+./record-mode/mac/build.sh && open "record-mode/build/Record Mode.app"
 ```
 
 Each app has a `CHANGELOG.md` in its folder, and releases are tagged per app (`tierlist/v1.0.0`).
