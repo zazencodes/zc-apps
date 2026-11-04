@@ -5,10 +5,14 @@ Small personal desktop apps, one folder per app. Each app is self-contained: its
 - `tierlist/`: Tier List ZC, a drag-and-drop tier list app with an agent-editable CLI. See `tierlist/AGENTS.md`.
 - `cpu-bars/`: CPU Bars, a menu bar CPU monitor (SwiftUI `MenuBarExtra`).
 - `record-mode/`: Record Mode, a menu bar toggle that switches the main display to a lighter mode for screen recording (SwiftUI `MenuBarExtra`).
+- `facecam/`: Facecam, a menu bar webcam mirror in a floating, resizable window (AppKit `NSStatusItem`).
+- `keycaps/`: Keycaps, a menu bar app that shows your keystrokes on screen as animated keycaps (Swift Package). See `keycaps/AGENTS.md`.
 
 ## Conventions
 
-- Platform code lives in `<app>/<platform>/` (today only `mac/`), with a `build.sh` that builds the app into `<app>/build/`. Swift apps build with the Command Line Tools, no Xcode project.
+This repo is an index that holds independent apps. It is not a shared stack. Build each new app in whatever language, frameworks, project layout and build system suit that app best, and don't copy another app's structure just because it lives here. Follow the existing code only when you're working inside that app.
+
+- Each app documents how to build it in its own `AGENTS.md` or `README.md`.
 - Bundle identifiers are `com.zazencodes.<app>`.
 - Add a new app as a folder with a `CHANGELOG.md`, and list it here and in `README.md`.
 
@@ -24,4 +28,4 @@ Each app is released on its own, as a tag `<app>/vX.Y.Z` with a GitHub release. 
 2. `git tag -a <app>/vX.Y.Z -m "<app>/vX.Y.Z"` and `git push origin <app>/vX.Y.Z`.
 3. `gh release create <app>/vX.Y.Z --title "<App Name> vX.Y.Z" --notes "<that version's CHANGELOG section>"`.
 
-No prebuilt apps are attached; users build from source with `<app>/mac/build.sh`.
+No prebuilt apps are attached; users build from source with the app's own build command.
