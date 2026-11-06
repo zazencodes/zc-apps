@@ -13,7 +13,16 @@ This repo is an index that holds independent apps. It is not a shared stack. Bui
 
 - Each app documents how to build it in its own `AGENTS.md` or `README.md`.
 - Bundle identifiers are `com.zazencodes.<app>`.
-- Add a new app as a folder with a `CHANGELOG.md`, and list it here and in `README.md`.
+- Add a new app as a folder with a `CHANGELOG.md` and an install script, and list it here and in `README.md`.
+
+## Installing Apps
+
+Alex runs these apps from `/Applications`, where Spotlight finds them. When a change to an app is finished and has passed testing, run that app's install script without being asked. It builds the app, replaces the copy in `/Applications` and launches it.
+
+- `facecam/`, `cpu-bars/` and `record-mode/`: `./mac/install.sh`
+- `tierlist/` stays in `build/`, because the app finds its repo and loads its UI from its own location.
+
+Login items must point at the `/Applications` copy.
 
 ## Changelog
 
