@@ -1,5 +1,6 @@
-// Facecam: a menu bar webcam mirror. Click the icon to show or hide a floating, resizable window of
-// your camera, ready for screen recording. Right-click the icon for camera, mirror and quit.
+// Facecam: a menu bar webcam mirror. Opening the app shows a floating, resizable window of your camera,
+// ready for screen recording, except when it starts at login. Click the icon to show or hide the window.
+// Right-click the icon for camera, mirror and quit.
 import AppKit
 import AVFoundation
 
@@ -171,6 +172,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 self, selector: #selector(updateCamera), name: name, object: nil
             )
         }
+
+        if !Self.launchedAsLoginItem() {
+            showWindow()
+        }
+    }
+
+    // Opening the app while it is already running, from Spotlight, Finder or `open`.
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        showWindow()
+        return false
+    }
+
+    private static func launchedAsLoginItem() -> Bool {
+        let launchEvent = NSAppleEventManager.shared().currentAppleEvent
+        return launchEvent?.paramDescriptor(forKeyword: keyAEPropData)?.enumCodeValue == keyAELaunchedAsLogInItem
     }
 
     private func buildWindow() {
