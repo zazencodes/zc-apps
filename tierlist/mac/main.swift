@@ -1,4 +1,4 @@
-// Tier List ZC.app, built into <repo>/build/: the tier list UI (public/index.html, served from the repo over tierlist://)
+// Tier List ZC.app: the tier list UI (public/index.html, served from the repo over tierlist://)
 // on the left and a real browser pane on the right for card links.
 import Cocoa
 import WebKit
@@ -252,12 +252,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     }
 }
 
-// The app lives at <repo>/build/Tier List ZC.app.
-let repo = Repo(root: Bundle.main.bundleURL.deletingLastPathComponent().deletingLastPathComponent())
 let app = NSApplication.shared
 app.setActivationPolicy(.regular)
+// mac/build.sh writes the repo's path into Info.plist.
+guard let root = Bundle.main.object(forInfoDictionaryKey: "TierListRoot") as? String else {
+    fail("Info.plist has no TierListRoot. Rebuild with mac/build.sh.")
+}
+let repo = Repo(root: URL(fileURLWithPath: root))
 guard FileManager.default.fileExists(atPath: repo.current.path) else {
-    fail("\(repo.current.path) does not exist. The app must run from <repo>/build/, and this copy is at \(Bundle.main.bundlePath).")
+    fail("\(repo.current.path) does not exist. If the repo moved, reinstall with mac/install.sh from its new location.")
 }
 let delegate = AppDelegate(repo: repo)
 app.delegate = delegate

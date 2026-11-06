@@ -19,8 +19,7 @@ This repo is an index that holds independent apps. It is not a shared stack. Bui
 
 Alex runs these apps from `/Applications`, where Spotlight finds them. When a change to an app is finished and has passed testing, run that app's install script without being asked. It builds the app, replaces the copy in `/Applications` and launches it.
 
-- `facecam/`, `cpu-bars/` and `record-mode/`: `./mac/install.sh`
-- `tierlist/` stays in `build/`, because the app finds its repo and loads its UI from its own location.
+- `tierlist/`, `facecam/`, `cpu-bars/` and `record-mode/`: `./mac/install.sh`
 
 Login items must point at the `/Applications` copy.
 

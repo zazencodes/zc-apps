@@ -2,7 +2,7 @@
 
 Local drag-and-drop tier list app. The CLI is Node 24 with no dependencies; the app is Swift, built with the Command Line Tools.
 
-- The app is Tier List ZC. `./mac/build.sh` builds it to `build/Tier List ZC.app` (it finds the repo from there); open it with `open "build/Tier List ZC.app"`. The UI is `public/index.html`, loaded from the repo at runtime, so ⌘R reloads it after editing. Only `mac/main.swift` changes need a rebuild.
+- The app is Tier List ZC. `./mac/install.sh` builds it, installs it to `/Applications` and launches it; open it with `open "/Applications/Tier List ZC.app"`. `mac/build.sh` writes the repo's path into `Info.plist` as `TierListRoot`, which is how the app finds the repo, so reinstall if the repo moves. The UI is `public/index.html`, loaded from the repo at runtime, so ⌘R reloads it after editing. Only `mac/` changes need a reinstall.
 - `./tl.js <command>` manages lists from the shell; run it with no args to see commands.
 - Each list is a folder `lists/<slug>/` with `tierlist.json` and `images/`. Delete the folder to delete the list.
 - Lists have a `style`: `image` (image tiles, added with `add`) or `text` (cards with an optional Iconify icon saved as `images/<id>.svg`, a title and a tag; click a card to see its summary and links; added with `add-cards`).

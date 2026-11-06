@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds build/Tier List ZC.app. The app finds the repo from its own location, so it runs from there.
+# Builds build/Tier List ZC.app. The repo's path goes into Info.plist, which is how the app finds its lists and UI.
 set -euo pipefail
 
 root="$(cd "$(dirname "$0")/.." && pwd)"
@@ -28,6 +28,7 @@ cat > "$app/Contents/Info.plist" <<EOF
   <key>CFBundleIdentifier</key><string>com.zazencodes.tierlist</string>
   <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundleExecutable</key><string>TierList</string>
+  <key>TierListRoot</key><string>$root</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>NSHighResolutionCapable</key><true/>

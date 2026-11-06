@@ -19,13 +19,13 @@ Small desktop apps by [ZazenCodes](https://zazencodes.com/). Each app lives in i
 ```sh
 git clone https://github.com/zazencodes/zc-apps.git
 cd zc-apps
-./tierlist/mac/build.sh && open "tierlist/build/Tier List ZC.app"
+./tierlist/mac/install.sh
 ./cpu-bars/mac/install.sh
 ./record-mode/mac/install.sh
 ./facecam/mac/install.sh
 ```
 
-The install scripts build each app, copy it to `/Applications` and launch it. Tier List ZC runs from its `build/` folder.
+The install scripts build each app, copy it to `/Applications` and launch it.
 
 Each app has a `CHANGELOG.md` in its folder, and releases are tagged per app (`tierlist/v1.0.0`).
 

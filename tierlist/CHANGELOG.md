@@ -5,6 +5,7 @@
 ### Changed
 
 - Moved Tier List ZC into the `zazencodes/zc-apps` repo: clone it and build from `zc-apps/tierlist`
+- Tier List ZC now installs to `/Applications` with `./mac/install.sh`, so Spotlight finds it. It reads your lists from the repo it was built in, wherever the app is
 
 ## [1.0.0] - 2026-09-30
 

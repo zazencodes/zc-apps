@@ -44,11 +44,10 @@ Ask Claude Code or Codex to "make a tier list of these use cases", paste a list 
 ```sh
 git clone https://github.com/zazencodes/zc-apps.git
 cd zc-apps/tierlist
-./mac/build.sh
-open "build/Tier List ZC.app"
+./mac/install.sh
 ```
 
-The app is built into `build/` and runs from there. It reads your lists from the repo, so keep it in place.
+This builds the app, installs it to `/Applications` and launches it. It reads your lists from the repo, so run `./mac/install.sh` again if you move the repo.
 
 ## Using it with an agent
 
