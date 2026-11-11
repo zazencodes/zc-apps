@@ -15,6 +15,10 @@ This repo is an index that holds independent apps. It is not a shared stack. Bui
 - Bundle identifiers are `com.zazencodes.<app>`.
 - Add a new app as a folder with a `CHANGELOG.md` and an install script, and list it here and in `README.md`.
 
+## Decisions
+
+Each app keeps its standing decisions in `<app>/docs/adr/`, indexed in that app's `AGENTS.md`. Use the `adr` skill to read the relevant ones before changing an app and to write one whenever a decision is made.
+
 ## Installing Apps
 
 Alex runs these apps from `/Applications`, where Spotlight finds them. When a change to an app is finished and has passed testing, run that app's install script without being asked. It builds the app, replaces the copy in `/Applications` and launches it.
