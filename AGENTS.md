@@ -6,7 +6,6 @@ Small personal desktop apps, one folder per app. Each app is self-contained: its
 - `cpu-bars/`: CPU Bars, a menu bar CPU monitor (SwiftUI `MenuBarExtra`).
 - `record-mode/`: Record Mode, a menu bar toggle that switches the main display to a lighter mode for screen recording (SwiftUI `MenuBarExtra`).
 - `facecam/`: Facecam, a menu bar webcam mirror in a floating, resizable window (AppKit `NSStatusItem`).
-- `keycaps/`: Keycaps, a menu bar app that shows your keystrokes on screen as animated keycaps (Swift Package). See `keycaps/AGENTS.md`.
 
 ## Conventions
 

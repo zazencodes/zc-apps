@@ -15,7 +15,6 @@ Small desktop apps by [ZazenCodes](https://zazencodes.com/). Each app lives in i
 | [CPU Bars](cpu-bars/) | A menu bar CPU monitor for macOS. |
 | [Record Mode](record-mode/) | A menu bar toggle that switches your display to a lighter mode for screen recording. |
 | [Facecam](facecam/) | A menu bar webcam mirror in a floating, resizable window for screen recording. |
-| [Keycaps](keycaps/) | A menu bar app that shows your keystrokes on screen as animated keycaps. |
 
 ```sh
 git clone https://github.com/zazencodes/zc-apps.git
@@ -24,7 +23,6 @@ cd zc-apps
 ./cpu-bars/mac/build.sh && open "cpu-bars/build/CPU Bars.app"
 ./record-mode/mac/build.sh && open "record-mode/build/Record Mode.app"
 ./facecam/mac/build.sh && open "facecam/build/Facecam.app"
-./keycaps/build.sh && open "keycaps/build/Keycaps.app"
 ```
 
 Each app has a `CHANGELOG.md` in its folder, and releases are tagged per app (`tierlist/v1.0.0`).
