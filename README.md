@@ -15,6 +15,7 @@ Small desktop apps by [ZazenCodes](https://zazencodes.com/). Each app lives in i
 | [CPU Bars](cpu-bars/) | A menu bar CPU monitor for macOS. |
 | [Record Mode](record-mode/) | A menu bar toggle that switches your display to a lighter mode for screen recording. |
 | [Facecam](facecam/) | A menu bar webcam mirror in a floating, resizable window for screen recording. |
+| [Pretty Draw](pretty-draw/) | Beautiful screen annotations: rectangles, arrows, guided freehand and text over anything on screen. |
 
 ```sh
 git clone https://github.com/zazencodes/zc-apps.git
@@ -23,6 +24,7 @@ cd zc-apps
 ./cpu-bars/mac/install.sh
 ./record-mode/mac/install.sh
 ./facecam/mac/install.sh
+./pretty-draw/install.sh
 ```
 
 The install scripts build each app, copy it to `/Applications` and launch it.

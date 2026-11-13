@@ -6,6 +6,7 @@ Small personal desktop apps, one folder per app. Each app is self-contained: its
 - `cpu-bars/`: CPU Bars, a menu bar CPU monitor (SwiftUI `MenuBarExtra`).
 - `record-mode/`: Record Mode, a menu bar toggle that switches the main display to a lighter mode for screen recording (SwiftUI `MenuBarExtra`).
 - `facecam/`: Facecam, a menu bar webcam mirror in a floating, resizable window (AppKit `NSStatusItem`).
+- `pretty-draw/`: Pretty Draw, screen annotation for recordings (⌃B to draw rectangles, arrows, guided freehand and text over the screen). Alex's replacement for Presentify, planned for the Mac App Store later. See `pretty-draw/AGENTS.md`.
 
 ## Conventions
 
@@ -24,6 +25,7 @@ Each app keeps its standing decisions in `<app>/docs/adr/`, indexed in that app'
 Alex runs these apps from `/Applications`, where Spotlight finds them. When a change to an app is finished and has passed testing, run that app's install script without being asked. It builds the app, replaces the copy in `/Applications` and launches it.
 
 - `tierlist/`, `facecam/`, `cpu-bars/` and `record-mode/`: `./mac/install.sh`
+- `pretty-draw/`: `./install.sh`
 
 Login items must point at the `/Applications` copy.
 
