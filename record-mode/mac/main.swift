@@ -3,6 +3,21 @@
 import SwiftUI
 import CoreGraphics
 
+// ZazenCodes (alex@zazencodes.com). Keep the recording tabs together for easy updates.
+func openRecordingTabs() throws {
+    let chrome = Process()
+    chrome.executableURL = URL(fileURLWithPath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+    // Launch directly so Chrome creates the window on the current Space before activating.
+    chrome.arguments = [
+        "--profile-directory=Profile 4",
+        "--new-window",
+        "https://zazencodes.com/newsletter",
+        "https://www.skool.com/zazencodes-agentic-coding-club-7823",
+        "https://zazencodes.com/courses/agentic-coding-fundamentals",
+    ]
+    try chrome.run()
+}
+
 struct DisplaySetting: Equatable {
     let width: Int        // points ("Looks like")
     let height: Int
@@ -11,7 +26,8 @@ struct DisplaySetting: Equatable {
     let refreshRate: Double
 
     static let normal = DisplaySetting(width: 3008, height: 1692, pixelWidth: 6016, pixelHeight: 3384, refreshRate: 120)
-    // A 3840x2160 backing store scales down to a 1080p video exactly 2x, at about a fifth of normal's pixels per second.
+    // A 3840x2160 backing store scales down to a 1080p video exactly 2x. Recordings are 60 fps, so 60 Hz gives the
+    // video every frame it can use for half the drawing of 120 Hz.
     static let record = DisplaySetting(width: 1920, height: 1080, pixelWidth: 3840, pixelHeight: 2160, refreshRate: 60)
 
     init(width: Int, height: Int, pixelWidth: Int, pixelHeight: Int, refreshRate: Double) {
@@ -49,10 +65,15 @@ func apply(_ setting: DisplaySetting) {
 
 @MainActor
 final class RecordMode: ObservableObject {
+    static let shared = RecordMode()
+
     // Read from the display, so it stays right when the mode is changed in System Settings.
-    @Published var setting = currentSetting()
+    @Published var setting = currentSetting() {
+        didSet { InputLog.shared.setRunning(isOn, display: describe(setting)) }
+    }
 
     init() {
+        InputLog.shared.setRunning(isOn, display: describe(setting))
         NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
                                                object: nil, queue: .main) { _ in
             Task { @MainActor in self.setting = currentSetting() }
@@ -61,9 +82,25 @@ final class RecordMode: ObservableObject {
 
     var isOn: Bool { setting == .record }
 
-    func toggle() {
-        apply(isOn ? .normal : .record)
+    func toggle() { set(on: !isOn) }
+
+    // Does nothing when the mode is already as asked, so `recordmode://on` never opens duplicate tabs.
+    func set(on: Bool) {
+        guard on != isOn else { return }
+        apply(on ? .record : .normal)
         setting = currentSetting()
+        if on {
+            let image = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Movies/space-1080p.jpeg")
+            NSWorkspace.shared.open(image)
+            do {
+                try openRecordingTabs()
+            } catch {
+                let alert = NSAlert()
+                alert.messageText = "Could not open recording tabs"
+                alert.informativeText = error.localizedDescription
+                alert.runModal()
+            }
+        }
     }
 }
 
@@ -71,9 +108,28 @@ func describe(_ setting: DisplaySetting) -> String {
     "\(setting.width)×\(setting.height) @ \(Int(setting.refreshRate)) Hz"
 }
 
+// Scripts switch the mode with `open recordmode://on` and `open recordmode://off`.
+@MainActor
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    func application(_ application: NSApplication, open urls: [URL]) {
+        for url in urls {
+            switch url.host {
+            case "on": RecordMode.shared.set(on: true)
+            case "off": RecordMode.shared.set(on: false)
+            default:
+                let alert = NSAlert()
+                alert.messageText = "Unknown Record Mode URL"
+                alert.informativeText = "\(url.absoluteString)\nUse recordmode://on or recordmode://off."
+                alert.runModal()
+            }
+        }
+    }
+}
+
 @main
 struct RecordModeApp: App {
-    @StateObject private var mode = RecordMode()
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var delegate
+    @StateObject private var mode = RecordMode.shared
 
     var body: some Scene {
         MenuBarExtra {

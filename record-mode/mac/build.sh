@@ -7,7 +7,7 @@ app="$root/build/Record Mode.app"
 
 rm -rf "$app"
 mkdir -p "$app/Contents/MacOS"
-swiftc -O -parse-as-library "$root/mac/main.swift" -o "$app/Contents/MacOS/RecordMode"
+swiftc -O -parse-as-library "$root"/mac/*.swift -o "$app/Contents/MacOS/RecordMode"
 
 cat > "$app/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -20,6 +20,13 @@ cat > "$app/Contents/Info.plist" <<PLIST
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>LSUIElement</key><true/>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLName</key><string>com.zazencodes.recordmode</string>
+      <key>CFBundleURLSchemes</key><array><string>recordmode</string></array>
+    </dict>
+  </array>
 </dict>
 </plist>
 PLIST
